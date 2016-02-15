@@ -1,0 +1,3 @@
+char * String = malloc(100);
+scanf("%99[^\njs", String];
+char ** res = parse(String);

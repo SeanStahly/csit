@@ -1,0 +1,172 @@
+Sean Stahly
+
+Part 1
+1. 162.212.17.113
+2. 59880
+3. http (80)
+4. 603
+
+Part 2
+domains DNS/ pages:
+
+  cs.unk.edu
+    /~miller/hw2.html
+    /favicon.ico
+    src: 144.216.127.196
+    des: 144.216.127.135
+
+  www.whatismyipaddress.com
+    /
+    src: 144.216.127.196
+    des: 23.4.8.186
+    /images-v4/product-spotlight-blacklist.png
+    src: 144.216.127.196
+    des: 104.118.104.51
+    /morpheus.whatismyip.js
+    src: 144.216.127.196
+    des: 205.251.251.28
+
+  cdn.arstechnica.com
+    /wp-content/themes/arstechnica/assets/images/material-ars.png
+    src: 144.216.127.196
+    des: 205.234.175.175
+
+  ap.lijit.com
+    /www/headerauction/prebid.min.js
+    src: 144.216.127.196
+    des: 67.217.177.126
+
+  segment-data.zqtk.net
+    /conde-nast?url=http%3A%2F%2Farstechnica.com%2F
+    src: 144.216.127.196
+    des: 52.2.163.12
+
+  plugin.mediavoics.com
+    /plugin.js
+    src: 144.216.127.196
+    des: 104.93.75.229
+
+  assets.adobedtm.com
+    /6372cf21ef88ee60bc2977a4898cb5c7945a212/scripts/satellite-554bd3ed3231390014de0700.js
+    src: 144.216.127.196
+    des: 104.93.195.172
+
+  cdn.yldbt.com
+    /js/yieldbot.intent.js
+    src: 144.216.127.196
+    des: 54.230.51.80
+
+  c.amazon-adsystem.com
+    /aax2/amzn_ads.js
+    src: 144.216.127.196
+    des: 54.192.50.215
+
+  static.parsely.com
+    /p.js
+    src: 144.216.127.196
+    des: 54.230.48.228
+
+  dy48bnzanqw0v.cloudfront.net
+    /?url=http%3A%2F%2Farstechnica.com%2F&mapping=4po&jsonp=CN.ad.cnds.tags%3D
+    src: 144.216.127.196
+    des: 54.230.48.93
+
+  www.google-analytics.com
+    /ga.js
+    src: 144.216.127.196
+    des:216.58.216.110
+
+  i.yldbt.com
+    /m/1473/v1/init?cb=yieldbot.updateState&v=v2015-06-23%7Ce14513e&vi=ikdg724hbxfo8amt4n&si=ikdg724hmbvr2uzzfr&pvi=ikdg724gffow96ky8t&pvd
+    src: 144.216.127.196
+    des: 54.189.42.22
+
+  pixel.condenastdigital.com
+    /config/ars-technica.config.js
+    src: 144.216.127.196
+    des: 23.235.40.239
+
+  srv-2016-02-08-03.config.parsely.com
+    /config/arstechnica.com
+    src: 144.216.127.196
+    des: 54.210.216.132
+
+  pubads.g.doubleclick.net
+    /gampad/cookie.js?domain=arstechninca.com&callback=window.parent.googletag.impl.pubads.setCookieInfo&iu=3379&cookie_enabled=1
+    src: 144.216.127.196
+    des: 216.58.216.98
+
+  pixel.adsafeprotected.com
+    /rjss/st/50073/7756009/skelton.js
+    src: 144.216.127.196
+    des: 69.172.216.55
+
+  cdn.teads.tv
+    /media/format.js
+    /media/format/v2/all-v2.js?20162721
+    src: 144.216.127.196
+    des:23.4.122.145
+
+  ads.pointroll.com
+    /PortalServe/?pid=2788752E65520160129160954&flash=0&time=0|21:57|-6&redir=https://adclick.g.doubleclick.net
+    src: 144.216.127.196
+    des: 167.8.226.10
+
+  gfk-us-us.sensic.net
+    /view.php?id=2204&ai=220401433&si=123&z=1954462933
+    /view.php?id=2204&ai=220401433&si=123&z=290882805
+    src: 144.216.127.196
+    des: 54.247.182.160
+
+  condenast.demdex.net
+    /event?d_nsid=0&d_ld=_ts%3D1454903866092&d_rtbd=json&d_jsonv=1&d_dst=1&d_cb=demdexRequestCallback_0
+    src: 144.216.127.196
+    des: 54.187.111.93
+
+  ds.serving-sys.com
+    /BurstingRes///Site-94851/WSFolders/5263396/HA_970x250_YoursCouch.jpg
+    src: 144.216.127.196
+    des: 184.51.40.10
+
+  log.dmtry.com
+    /redir/382928/0/4215/2788750/2164559/368086/0/0/0/1.ver?at=i&d=Imp&echo=&sz=na&jf=1&jt=1&jsv=4.5.0&oc=AD0&nc=0&num=0&sr=1024x768x24&tz=6&url=http%3A%2F%2Farstechnica.com%2F
+    src: 144.216.127.196
+    des: 52.32.74.234
+
+  z.moatads.com
+    /swf/MessageSenderV4.swf
+    /swf/cap.swf
+    src: 144.216.127.196
+    des: 23.4.11.16
+
+  sc.iasds01.com
+    /dtc?asid=1bbb8830-ce18-lle5-9d63-002590876128
+    /dtc?asid=1bbb8830-ce18-bfd7-382c4ac73091
+    src: 144.216.127.196
+    des: 199.166.0.200
+
+  pixel.adsafeprotected.com
+    /rfw/st/50073/7756009/skeleton.js?adsafe_url=http%3A%2F%2Farstechnica.com%2F&adsafe_type=abdfq&adsafe_url=http%3A%2F%2Fcs.unk.edu%2Fhw2.html&adsafe_jsinfo=,c:3zHcIA,sl:partialViewPlus,em:true,fr:true
+    src: 144.216.127.196
+    des:69.172.216.55
+
+  log.dmtry.com
+    /382928/0/4215/2788750/2164559/368086/0/0/0/1.ver?at=i&d=Imp&echo=&sz=na&jf=1&jt=1&jsv=4.5.0&oc=ADO&nc=0&num=0&sr=1024x768x24&tz=6&url=http%3A%2F%2Farstechnica.com%2F
+    src: 144.216.127.196
+    des: 52.32.74.234
+
+  b.scorecardresearch.com
+    /r?c2=6035094&d.c=gif&d.o=conde-arstechnica&d.x=254143052&d.t=page&d.r=http%3A%2F%2Fcs.unk.edu%2F~miller%2Fhw2.html&d.u=http%3A%2F%2Farstechnica.com%2F
+    src: 144.216.127.196
+    des: 184.51.40.8
+
+  pagead2.googlesyndication.com
+    /activeview?avi=BnoejNxK4VvbBOdSepgO_hK_wAQAAAAAQATgByAEJwAIC4AIA4AQBoAYf&cid=5GhEeyabYmjtvjlr-K0CpAgXEo8&id=osdim&ti=1&adk=1359398343&p=15,0,16,1&tos=1440,0,0,0,0&mtos=1440,1440,1440,1440,1440&rs=3&ht=0&tfs=1104&tls=2544&mc=1&fp=correlator%3D932296711286564%26eid%3D108809080%26iu%3D%252F3379%252Fars.dart%252Fhomepage%26oid%3D3%26url%3Dhttp%253A%252F%252Farstechnica.com%252F&afp=%26output%3Djson_html%26impl%3Dfif%26dt%3D1454903864807%26adx%3D0%26ady%3D0%26ifi%3D3%26flash%3D0&tmo=8&tme=8&tdl=49&abd=0-0-5&r=u&bs=755,409&bos=768,527&ps=1020,8685&ss=1024,768&tt=2546&pt=-1&deb=1-0-4-9-5--1&tvt=1443&uc=5&tgt=nf&cl=0
+    src: 144.216.127.196
+    des: 216.58.216.226
+
+  cdnjs.cloudflare.com
+    /ajax/libs/gsap/1.9.7/TweenLite.min.js
+    /ajax/libs/gsap/1.9.7/easing/EasePack.min.js
+    src: 144.216.127.196
+    des: 198.41.215.67

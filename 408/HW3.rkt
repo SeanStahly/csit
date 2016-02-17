@@ -46,3 +46,26 @@
   (make-test 1 3)) ;; a test with 1, 2 and 3 as test values
 (test-1-3 compare-sc)
 ;Value: #f
+
+;2
+;a
+(define (complement proc)
+  (define (new-proc n)
+    (if (proc n)
+      #f
+      #t))
+  new-proc)
+(define (some-proc n)
+  (if (= n 1)
+      #t
+      #f))
+(some-proc 1) 
+;Value: #t 
+((complement some-proc) 1) 
+;Value: #f
+
+(define (odd? n)
+  ((complement even?) n))
+(even? 4)
+(odd? 9)
+(odd? 4)

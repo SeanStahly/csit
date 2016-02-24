@@ -1,0 +1,39 @@
+Sean Stahly
+HW3 Computer security
+my password:
+newpassword123
+
+UNK_XXXX
+
+UNK_1234         (matt)
+UNK_1234         (mattm)
+UNK_1234         (bob)
+
+real    6m36.638s
+user    6m27.896s
+sys     0m0.104s
+
+
+
+UNK_XXXXX
+
+UNK_86753        (ted)
+
+real    59m47.804s
+user    59m10.372s
+sys     0m0.540s
+
+
+
+UNK_XXXXXX
+
+UNK_876543       (fred)
+
+real    494m29.970s
+user    491m25.044s
+sys     0m3.012s
+
+
+BONUS: rockyou.txt
+
+1234             (johnlukepicard)

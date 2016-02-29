@@ -36,4 +36,15 @@ sys     0m3.012s
 
 BONUS: rockyou.txt
 
-1234             (johnlukepicard)
+matt:UNK_1234:16825:0:99999:7:::
+mattm:UNK_1234:16826:0:99999:7:::
+ted:UNK_86753:16826:0:99999:7:::
+fred:UNK_876543:16826:0:99999:7:::
+bob:UNK_1234:16849:0:99999:7:::
+sean:newpassword123:16855:0:99999:7:::
+odellmw:lamepassword:16854:0:99999:7:::
+loganoliver:easypassword:16854:0:99999:7:::
+kyle:peaches:16855:0:99999:7:::
+harrypotter226:1234:16855:0:99999:7:::
+granta:a1b2c3d4:16855:0:99999:7:::
+chase:password:16856:0:99999:7:::

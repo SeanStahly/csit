@@ -18,3 +18,4 @@ excaliber!
 newpassword123
 peaches
 a1b2c3d4
+lamepassword

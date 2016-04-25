@@ -51,7 +51,7 @@
 
 (define-type FAE-Value
   [ numV (n number?)]
-  [ closureV (param symbol?)
+  [ closureV (params (listof symbol?))
              (body FAE?)
              (ds DefrdSub?)])
 
@@ -73,22 +73,19 @@
       ds
       ( closureV (car bound-ids) bound-body (links (cdr bound-ids) bound-body ds))))
 
-;(define (appMulti arg-expr ds)
-;  (if (null? arg-expr)
-;      ds
-;      (interp (car arg-expr) (appMulti (cdr arg-expr) ds))))
+(define (appMulti params args ds)
+  (if (null? params)
+      ds
+      (aSub (car params) (interp (car args) ds) (appMulti (cdr params) (cdr args) ds))))
   
-(define (appMulti fun-expr arg-expr ds)
-  (local ([define fun-val (interp fun-expr ds)])
-    (if (null? arg-expr)
-        (closureV-ds fun-val)
-        (interp (closureV-body fun-val)
-                ( aSub (closureV-param fun-val)
-                       (interp (car arg-expr) ds)
-                       (closureV-ds (appMulti fun-expr (cdr arg-expr) ds)))))))
-  
-  
-  
+;(define (appMulti fun-expr arg-expr ds)
+;  (local ([define fun-val (interp fun-expr ds)])
+;    (if (null? arg-expr)
+;        (closureV-ds fun-val)
+;        (interp (closureV-body fun-val)
+;                ( aSub (closureV-param fun-val)
+;                       (interp (car arg-expr) ds)
+;                       (appMulti fun-expr (cdr arg-expr) ds))))))
 
 ;; interp : FAE DefrdSub â†’ FAE-Value
 (define (interp expr ds)
@@ -96,12 +93,20 @@
     [ num (n) ( numV n)]
     [ binop (b l r) ( numV (b (numV-n (interp l ds)) (numV-n (interp r ds))))]
     [ id (v) (lookup v ds)]
-    ;[ fun (bound-id bound-body)
-    ;      ( closureV bound-id bound-body ds)]
-    [ fun (bound-ids bound-body)
-          (links bound-ids bound-body ds)]
-    [ app (fun-expr arg-expr)
-        (appMulti fun-expr arg-expr ds)]))
+    [ fun (bound-id bound-body)
+          ( closureV bound-id bound-body ds)]
+;    [ fun (bound-ids bound-body)
+;          (links bound-ids bound-body ds)]
+;    [ app (fun-expr arg-expr)
+;        (appMulti fun-expr arg-expr ds)]))
+    [ app (fun-expr args)
+          (local ([define fun-val (interp fun-expr ds)])
+            (interp (closureV-body fun-val)
+                    (appMulti (closureV-params fun-val) args (closureV-ds fun-val))))]))
+;                    ( aSub (closureV-param fun-val)
+;                           (interp args ds)
+;                           (closureV-ds fun-val))))]))
+
 ;    [ app (fun-expr arg-expr)
 ;          (local ([define fun-val (interp fun-expr ds)])
 ;            (interp (closureV-body fun-val)
@@ -115,34 +120,15 @@
 ;                           (interp arg-expr ds)
 ;                           (closureV-ds fun-val))))]))
 
-;(define (parse sexp)
-;  (cond
-;    [(number? sexp) (num sexp)]
-;    [(symbol? sexp) (id sexp)]
-;    [(list? sexp)
-;     (case (first sexp)
-;       [(+) (add (parse (second sexp))
-;                 (parse (third sexp)))]
-;              [(with) (with (first (second sexp))
-;                            (parse (second (second sexp)))
-;                            (parse (third sexp)))
-;                      ]
-;       [(fun) (fun 
-;               (first (second sexp))
-;               (parse (third sexp))
-;               )
-;              ]
-;       [else
-;        (cond ((list? (first sexp))
-;               ; modify by parsing the following to handle multiple params
-;               (app (parse (first sexp)) (parse (second sexp)))))
-;        ]
-;       )]))
 
 (parse '{{fun {x} {+ x x}} 5})
-;(parse '{{fun {x y} {+ x y}} 5 4})
+(parse '{{fun {x y} {+ x y}} 5 4})
+
+(parse '{{fun {x y z} {+ x y z}} 5 4 18})
+(parse '{fun {x y z} {+ x y z}})
 (interp (parse '{{fun {x} {+ x x}} 5}) (mtSub) )
-(interp (parse '{{fun {x y} {+ x y}} 5 4}) (mtSub) )
+(interp (parse '{{fun {x y} {+ x y}} 5 3}) (mtSub) )
+(display "Blarg should be 27")(interp (parse '{{fun {x y z} {+ x y z}} 5 4 18}) (mtSub) )
 (interp (parse '{{fun {x} {- x 4}} 5}) (mtSub) )
 (interp (parse '{{fun {x} {- x x}} 5}) (mtSub) )
 (interp (parse '{{fun {x} {* x x}} 5}) (mtSub) )

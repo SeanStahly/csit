@@ -17,15 +17,10 @@
 ; modify by parsing the following into a binop
        [(+ - * /) (binop (convert (first sexp)) (parse (second sexp)) (parse (third sexp)))]
 ; modify by parsing the following into an app with multiple params
-       ;[(with) (with (first (second sexp))
-;                     (parse (second (second sexp)))
-;                     (parse (third sexp)))
-;               ]
        [ (with) (app (fun
                       (map (lambda (x) (first x)) (second sexp))
                       (parse (third sexp)))
                      (map (lambda (x) (parse (second x))) (second sexp)))]
-;       [(with) (app (fun '(x y) (+ (id x) (id y))) (10 20)) ]
 ; modify by parsing the following to handle multiple params
        [(fun) (fun
                (second sexp)
@@ -45,9 +40,7 @@
   [ binop (op procedure?) (lhs FAE?) (rhs FAE?)]
   [ id (name symbol?)]
   [ fun (args (listof symbol?)) (body FAE?)]
-  ;[ fun (param symbol?) (body FAE?)]
   [ app (fun-expr FAE?) (args (listof FAE?))])
-;  [ with (lob (listof Binding?)) (body FAE?)])
 
 (define-type FAE-Value
   [ numV (n number?)]
@@ -97,21 +90,31 @@
                     (appMulti (closureV-params fun-val) args (closureV-ds fun-val))))]))
 
 
+(display "Testing (parse '{{fun {x} {+ x x}} 5})")(newline)
 (parse '{{fun {x} {+ x x}} 5})
+(display "Testing (parse '{{fun {x y} {+ x y}} 5 4})")(newline)
 (parse '{{fun {x y} {+ x y}} 5 4})
+(display "Testing (parse '{{fun {x y z} {+ x {+ y z}}} 5 4 18})")(newline)
 (parse '{{fun {x y z} {+ x {+ y z}}} 5 4 18})
-
+(display "Testing (parse '{{fun {x y z} {+ x y z}} 5 4 18})")(newline)
 (parse '{{fun {x y z} {+ x y z}} 5 4 18})
+(display "Testing (parse '{fun {x y z} {+ x y z}})")(newline)
 (parse '{fun {x y z} {+ x y z}})
+(display "Testing (interp (parse '{{fun {x} {+ x x}} 5}) (mtSub) )")(newline)
 (interp (parse '{{fun {x} {+ x x}} 5}) (mtSub) )
+(display "Testing (interp (parse '{{fun {x y} {+ x y}} 5 3}) (mtSub) )")(newline)
 (interp (parse '{{fun {x y} {+ x y}} 5 3}) (mtSub) )
-(display "Blarg should be 27")(interp (parse '{{fun {x y z} {+ x {+ y z}}} 5 4 18}) (mtSub) )
+(display "Testing (interp (parse '{{fun {x y z} {+ x {+ y z}}} 5 4 18}) (mtSub) )")(newline)
+(interp (parse '{{fun {x y z} {+ x {+ y z}}} 5 4 18}) (mtSub) )
+(display "Testing (interp (parse '{{fun {x} {- x 4}} 5}) (mtSub) )")(newline)
 (interp (parse '{{fun {x} {- x 4}} 5}) (mtSub) )
+(display "Testing (interp (parse '{{fun {x} {- x x}} 5}) (mtSub) )")(newline)
 (interp (parse '{{fun {x} {- x x}} 5}) (mtSub) )
+(display "Testing (interp (parse '{{fun {x} {* x x}} 5}) (mtSub) )")(newline)
 (interp (parse '{{fun {x} {* x x}} 5}) (mtSub) )
+(display "Testing (interp (parse '{{fun {x} {/ x x}} 5}) (mtSub) )")(newline)
 (interp (parse '{{fun {x} {/ x x}} 5}) (mtSub) )
+(display "Testing (interp (parse '{with {{x 10} {y 20}} {+ x y}}) (mtSub) )")(newline)
 (interp (parse '{with {{x 10} {y 20}} {+ x y}}) (mtSub) )
+(display "Testing (interp (parse '{with {{x 2} {y 3}} {with {{z {+ x y}}} {+ x z}}}) (mtSub) )")(newline)
 (interp (parse '{with {{x 2} {y 3}} {with {{z {+ x y}}} {+ x z}}}) (mtSub) )
-
-;(display "Testing multi-argument")(interp (parse '{{fun {x y} {+ x y}} 5 3}) (mtSub) )
-

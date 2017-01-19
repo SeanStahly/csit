@@ -1,0 +1,8 @@
+a
+aba
+ababa
+abababa
+ababababa
+abababababa
+ababababababa
+ababaabbababa

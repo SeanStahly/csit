@@ -31,4 +31,6 @@ int main() {
 
   printf("Your gross pay is %.2f.\n", grossPay);
   printf("Your total pay is %.2f.\n", total);
+
+  return 0
 }

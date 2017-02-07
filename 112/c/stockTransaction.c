@@ -35,4 +35,6 @@ int main() {
 
   float profit = grossProfit - grossPurchase - commissionForBuying - commissionForSelling;
   printf("Joe made a profit of %.2f dollars!\n", profit);
+
+  return 0;
 }

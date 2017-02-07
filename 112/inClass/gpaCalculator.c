@@ -19,4 +19,6 @@ int main() {
   } else {
     printf("Sorry. You did not receive a passing grade.\n");
   }
+
+  return 0;
 }

@@ -53,6 +53,6 @@ int main() {
     finalPay += 5;
   }
 
-  printf("\nThe employee's pay is %.2f of the base pay.\n", finalPay);
+  printf("\nThe employee's pay is %.2f%% of the base pay.\n", finalPay);
 
 }

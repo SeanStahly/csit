@@ -64,13 +64,16 @@ int main(int argc, char *argv[])
 			printf("Enter the number:");
 			scanf("%d", &number);
 
-		//	cellArray = genLists(number, &size);
+			cellArray = genLists(number, &size);
 		
-		//	list<int> line = permutations.front();  
+
+			printf("perm size: ");
+			cout << permutations.size();
+			list<int> line = permutations.front();  
 			
-		// list<list<list<int>>> latinSquares = getLatinSquares(line);
+		list<list<list<int>>> latinSquares = getLatinSquares(line);
 		
-		/*for (list<list<int>> ls : latinSquares) {
+		for (list<list<int>> ls : latinSquares) {
 			for (list<int> line : ls) {
 				for (int i : line) {
 					printf("%d,", i);	
@@ -78,10 +81,15 @@ int main(int argc, char *argv[])
 				cout << endl;
 			}
 			cout << endl;
-		}*/	
+		}	
 	}
 		
 	//MPI_Bcast(&size,  1,    MPI_INT,0,MPI_COMM_WORLD);
+	cout << "The size " << size << endl;
+	if(world_rank != 0)
+	{
+		//cellArray = (cell*)malloc(size * sizeof(cell));
+	}
 	//MPI_Bcast(cellArray, size, mpi_cell_type, 0, MPI_COMM_WORLD);
 	int lines;
 	if (world_rank == 0)
@@ -111,9 +119,9 @@ int main(int argc, char *argv[])
 			for(int i= 1; i < world_size; i++)
 			{
 			MPI_Recv(&returnSize,1, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-//				cout << i;
-//				cout << endl;
-//				cout << returnSize;
+				cout << i;
+				cout << endl;
+				cout << returnSize;
 				totalLatinSquares += returnSize;
 				/* char del = ' ';
 				for(int i = 0; i < number*number; i++)
@@ -144,13 +152,20 @@ int main(int argc, char *argv[])
                                 lines += 1;
                         }
 
+			printf("World Rank %d", world_rank);
+			cout << endl;
+			printf("lines %d", lines);
+			cout << endl;
 			int startIndex = (world_rank - 1) * lines;	
 			int endIndex = world_rank * lines;
 			
+			printf("\ne %d s %d", endIndex, factorial(number));
+			cout << permutations.size();
+	
 			if (endIndex > factorial(number)) {
 				endIndex = factorial(number);
 			}
-			printf("\nStart Index: %d, End Index: %d for World Rank %d\n", startIndex, endIndex, world_rank);
+			printf("\n%d - %d", startIndex, endIndex);
 			
 			list<list<int>> worldLines (permutations);
 
@@ -163,6 +178,10 @@ int main(int argc, char *argv[])
 					worldLines.pop_front();
 				}		
 			}
+			cout << world_rank;
+			cout << endl;
+			cout << returnableLatinSquares.size();
+			cout << endl;
 			returnSize = returnableLatinSquares.size();
 			MPI_Send(&returnSize, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
 		}

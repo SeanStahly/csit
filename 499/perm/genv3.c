@@ -20,7 +20,7 @@ list<list<int>> permutations;
 int algorithm(int number);
 cell * genLists(int number, int * size);
 
-list<list<list<int>>> getLatinSquares(list<int> startingLine); 
+list<list<list<int>>> getLatinSquares(list<int> startingLine);
 list<list<list<int>>> addLines(list<list<int>> setLines, list<list<int>> possibilities);
 list<list<int>> filterPossibilities(list<list<int>> setLines, list<list<int>> possibilites);
 int main(int argc, char *argv[])
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 	MPI_Comm_size(MPI_COMM_WORLD, &world_size);
 
 
-	list<int> temp1;	
+	list<int> temp1;
 	temp1.push_back(0);
 	temp1.push_back(1);
 	temp1.push_back(2);
@@ -61,15 +61,15 @@ int main(int argc, char *argv[])
 	temp6.push_back(2);
 	temp6.push_back(1);
 	temp6.push_back(0);
-	permutations.push_back(temp1);		
-	permutations.push_back(temp2);		
-	permutations.push_back(temp3);		
-	permutations.push_back(temp4);		
-	permutations.push_back(temp5);		
-	permutations.push_back(temp6);		
-	
+	permutations.push_back(temp1);
+	permutations.push_back(temp2);
+	permutations.push_back(temp3);
+	permutations.push_back(temp4);
+	permutations.push_back(temp5);
+	permutations.push_back(temp6);
+
 	list<list<list<int>>> latinSquares = getLatinSquares(temp1);
-	
+
 	for(list<list<int>> ls: latinSquares) {
 		for(list<int> line: ls) {
 			for (int i: line) {
@@ -92,9 +92,9 @@ int main(int argc, char *argv[])
 
     MPI_Type_create_struct(nitems, blocklengths, offsets, types, &mpi_cell_type);
     MPI_Type_commit(&mpi_cell_type);
-	
-	
-	
+
+
+
 	int init;
 	int number = 4;
 	int * array;
@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
 		{
 			cellArray = genLists(number, &size);
 		}
-		
+
 	MPI_Bcast(&size,  1,    MPI_INT,0,MPI_COMM_WORLD);
 	cout << "The size " << size << endl;
 	if(world_rank != 0)
@@ -130,14 +130,14 @@ int main(int argc, char *argv[])
 				}
 			}
 		}
-	else if (world_rank != 0) 
+	else if (world_rank != 0)
 		{
-			
+
 			float workers = world_size-1.0;
 			float rank = world_rank -1.0;
     		//MPI_Recv(&number, 1, MPI_INT, 0, 0, MPI_COMM_WORLD,MPI_STATUS_IGNORE);
 			float percent = 1.0/workers;
-			
+
 			int min = percent * rank * size;
 			int max = percent * (rank+1)  * size -1.0;
 			printf("RANK --- %d min %d max %d", world_rank, min, max);
@@ -157,9 +157,9 @@ int main(int argc, char *argv[])
    // done with MPI
    MPI_Finalize();
    }
- 
- 
-   
+
+
+
 cell * genLists(int number, int * size)
 	{
 		cell * cellArray;
@@ -178,7 +178,7 @@ cell * genLists(int number, int * size)
 		//algorithm(number);
 		list<list<int>> result;
 		list<int> empty;
-		permute(&result,empty, l);  
+		permute(&result,empty, l);
 		*size = result.size() * number;
 		cellArray = (cell *)malloc(sizeof(cell) * number * result.size());
 		int index = 0;
@@ -186,23 +186,23 @@ cell * genLists(int number, int * size)
 		{
 			for(int lvalue: l)
 			{
-					cellArray[index].value = lvalue;	
+					cellArray[index].value = lvalue;
 					index++;
 					//cout<<index << " " << lvalue << endl;
 			}
 		}
-		
+
 		cout <<"Size = "<< result.size()<< endl;
 		return cellArray;
-	} 
- 
+	}
+
 /* print permutations of string */
 void permute(list<list<int>> *result, list<int> current, list<int> left)
 {
 	if(left.empty())
 	{
 //		cout <<"Size = "<< result->size()<< endl;
-		result->push_front(current);	
+		result->push_front(current);
 //		cout <<"Size = "<< result->size()<< endl;
 		for(int j: current)
 		{
@@ -240,7 +240,7 @@ list<list<list<int>>> getLatinSquares(list<int> startingLine) {
 
 list<list<list<int>>> addLines(list<list<int>> setLines, list<list<int>> possibilities) {
 	list<list<int>> filteredPossibilities = filterPossibilities(setLines, possibilities);
-	
+
 	list<list<list<int>>> latinSquares;
 
 	if (filteredPossibilities.size() == 1) {
@@ -284,5 +284,3 @@ list<list<int>> filterPossibilities(list<list<int>> setLines, list<list<int>> po
 	}
 	return fList;
 }
-
-

@@ -2,6 +2,9 @@
 
 //By Sean Stahky
 //This program assumes data is entered correctly
+//This program will take in codes based on an employee's job classification,
+//education, merit, and years of service and then output a percent of base pay
+//that they will receive
 int main() {
   int jobCode, eduCode, meritRating, years;
   float finalPay = 100.0;

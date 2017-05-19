@@ -110,6 +110,7 @@ int main() {
     int daysElapsed = calculateDaysSinceLastSale(currentDate, lastDateSold);
     float salePrice =  getSalePriceOfItem(daysElapsed, stock, cost, regPrice);
 
+    //append data together in string
     strcat(output, ("%3d       %3d        %3d        %2d    %2.2f   %2.2f    %2.2f\n", itemNumber, lastSaleDate, daysElapsed, stock, cost, regPrice, salePrice));
   }
 

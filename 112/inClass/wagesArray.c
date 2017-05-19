@@ -16,7 +16,7 @@ int main() {
     {40.0, 32.0}
   };
 
-  for(int i = 0; i < 6; i++) {
+  for(int i = 0; i < 5; i++) {
     //gross pay
     info[i][2] = info[i][0] * info[i][1];
     //federal tax
@@ -41,7 +41,7 @@ int main() {
   printf("\n");
   for(int i =0; i < 5; i++) {
     if (ids[i] == 333) {
-      info[i][1] += 2.50;
+      info[i][1] = info[i][1] + 2.50;
       //gross pay
       info[i][2] = info[i][0] * info[i][1];
       //federal tax
@@ -56,8 +56,8 @@ int main() {
     }
   }
 
-  printf(" ID    Hours    Wages    G. Pay    Fed. Tax    Sta. Tax    Deducted    Total\n");
+  printf(" ID    Hours    Wages    G. Pay    Fed. Tax    Sta. Tax    Deducted      Total\n");
   for (int i =0; i < 5; i++) {
-    printf("%d    %.2f    %.2f    %.2f     %.2f       %.2f      %.2f       %.2f\n", ids[i], info[i][0], info[i][1], info[i][2], info[i][3], info[i][4], info[i][5], info[i][6]);
+    printf("%d    %.2f    %.2f   %7.2f     %6.2f      %6.2f      %6.2f     %7.2f\n", ids[i], info[i][0], info[i][1], info[i][2], info[i][3], info[i][4], info[i][5], info[i][6]);
   }
 }
